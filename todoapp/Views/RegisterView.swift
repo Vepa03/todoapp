@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct RegisterView: View {
+    @State var name = ""
+    @State var email = ""
+    @State var password = ""
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            VStack{
+                ZStack{
+                    Image("login").resizable().frame(width:100, height:150)
+                }.padding(.top, 100)
+                Form{
+                    Section(header: Text("KAYIT FORMU")){
+                        TextField("Full Name", text:$name)
+                        TextField("email", text:$name)
+                        SecureField("password", text:$password)
+                    }
+                }.frame(height: 200)
+                Button(action: {}, label: {
+                    ZStack{
+                        RoundedRectangle(cornerRadius: 15).foregroundStyle(.primary)
+                        Text("Girish yap").foregroundStyle(.white)
+                    }
+                }).frame(height: 50).padding(.horizontal)
+                Spacer()
+            }
+        }
     }
 }
 
